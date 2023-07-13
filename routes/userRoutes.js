@@ -23,7 +23,7 @@ router.delete(
     '/deleteMe',
     userController.deleteMe);
 
-//router.use(authController.restrictTo('admin'));
+router.use(authController.restrictTo('admin'));
 
 router
     .route('/')
