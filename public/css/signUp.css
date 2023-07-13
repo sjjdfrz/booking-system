@@ -1,0 +1,13 @@
+.login-box {
+    padding: 80px 40px;
+    background-color: azure;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+
+.bg-img {
+    background-image: url("/img/loginBG.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

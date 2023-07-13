@@ -1,0 +1,44 @@
+html(lang="fa" dir="rtl")
+
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css' integrity='sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe' crossorigin='anonymous')
+    script(
+        src='https://kit.fontawesome.com/885b06fb9c.js' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css')
+    script(type='text/javascript' src='https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js')
+    link(rel='stylesheet' href='/css/profile.css')
+    title= title
+
+body
+    section.main-section
+        .container
+            .row.justify-content-center.align-items-center(style='min-height: 100vh;')
+                .col-md-6
+                    h2.mb-3.mb-md-3.text-center.text-white &#x627;&#x637;&#x644;&#x627;&#x639;&#x627;&#x62A; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC;
+                    form#profileForm
+                        .form-group
+                            label(for='name') &#x646;&#x627;&#x645; :
+                            input#name.form-control(type='text' value='')
+                        .form-group
+                            label(for='familyName') &#x646;&#x627;&#x645; &#x62E;&#x627;&#x646;&#x648;&#x627;&#x62F;&#x6AF;&#x6CC;:
+                            input#familyName.form-control(type='text' value='')
+                        .form-group
+                            label(for='email') &#x627;&#x6CC;&#x645;&#x6CC;&#x644; :
+                            input#email.form-control(type='email' value='')
+                        .form-group
+                            label(for='phoneNum') &#x634;&#x645;&#x627;&#x631;&#x647; &#x647;&#x645;&#x631;&#x627;&#x647; :
+                            input#phoneNum.form-control(type='number' value='')
+                        .form-group
+                            label(for='address') &#x622;&#x62F;&#x631;&#x633; :
+                            input#address.form-control(type='text' value='')
+                        .form-group
+                            label(for='birthDate') &#x62A;&#x627;&#x631;&#x6CC;&#x62E; &#x62A;&#x648;&#x644;&#x62F; :
+                            input#birthDate.form-control(data-jdp='' value='')
+                        button#saveButton.btn.btn-success.float-right(type='submit') &#x630;&#x62E;&#x6CC;&#x631;&#x647;
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js')
+    script(src='/js/profile.js')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')

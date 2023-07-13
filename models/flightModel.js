@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const flightSchema = new mongoose.Schema(
     {
-
         origin: {
             type: String,
             required: [true, 'A flight must have origin city!']
@@ -12,21 +11,22 @@ const flightSchema = new mongoose.Schema(
             required: [true, 'A flight must have destination city!']
         },
         flightNumber: {
-            type: Number,
+            type: String,
             required: [true, 'A flight must have flight number!']
         },
-        departing: {
+        departingDate: {
             type: Date,
             required: [true, 'A flight must have departing Date!']
         },
-        returning: Date,
-        // passenger: {
-        //     type: Number,
-        //     required: [true, `You have not specified the number of passengers!`]
-        // },
+        returningDate: Date,
+        departingTime: {
+            type: String,
+            required: [true, 'A flight must have departing Time!']
+        },
+        returningTime: String,
         terminal: {
             type: String,
-            default: 'شماره 2'
+            default: 'number 2'
         },
         loadAmount: {
             type: String,
@@ -35,10 +35,10 @@ const flightSchema = new mongoose.Schema(
         type: {
             type: String,
             enum: {
-                values: ['اکونومی', 'بیزینس'],
-                message: 'Type is either: اکونومی, بیزینس'
+                values: ['اقتصادی', 'تجاری'],
+                message: 'Type is either: تجاری, اقتصادی'
             },
-            default: 'اکونومی'
+            default: 'اقتصادی'
         },
         price: {
             type: Number,
@@ -48,8 +48,18 @@ const flightSchema = new mongoose.Schema(
             type: Number,
             required: [true, 'A flight must have a capacity!']
         }
+    }, {
+        toJSON: {virtuals: true},
+        toObject: {virtuals: true}
     }
 );
+
+// Virtual populate
+flightSchema.virtual('flightBookings', {
+    ref: 'FlightBooking',
+    foreignField: 'flight',
+    localField: '_id'
+});
 
 const Flight = mongoose.model('Flight', flightSchema);
 

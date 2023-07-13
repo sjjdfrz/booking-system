@@ -1,0 +1,1095 @@
+{
+	"info": {
+		"_postman_id": "cd398b63-b300-4b45-bf40-e45d5f8853e6",
+		"name": "booking-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23179871"
+	},
+	"item": [
+		{
+			"name": "Flights",
+			"item": [
+				{
+					"name": "Get All Flights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flights/?capacity[gte]=100",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "capacity[gte]",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Flight",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flights/64a44bb95a166e3060ee82c8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flights",
+								"64a44bb95a166e3060ee82c8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Flight",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"origin\": \"شیراز\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR456\",\r\n    \"departingDate\": \"2023-08-02\",\r\n    \"returningDate\": \"2023-08-04\",\r\n    \"departingTime\": \"14:30\",\r\n    \"returningTime\": \"16:45\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1000000,\r\n    \"capacity\": 100\r\n  },\r\n  {\r\n    \"origin\": \"شیراز\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR456\",\r\n    \"departingDate\": \"2023-08-02\",\r\n    \"returningDate\": \"2023-08-04\",\r\n    \"departingTime\": \"12:00\",\r\n    \"returningTime\": \"21:45\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 800000,\r\n    \"capacity\": 200\r\n  },\r\n  {\r\n    \"origin\": \"شیراز\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR456\",\r\n    \"departingDate\": \"2023-08-02\",\r\n    \"returningDate\": \"2023-08-04\",\r\n    \"departingTime\": \"12:30\",\r\n    \"returningTime\": \"16:45\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1500000,\r\n    \"capacity\": 300\r\n  },\r\n  {\r\n    \"origin\": \"شیراز\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR456\",\r\n    \"departingDate\": \"2023-08-02\",\r\n    \"returningDate\": \"2023-08-04\",\r\n    \"departingTime\": \"07:30\",\r\n    \"returningTime\": \"11:00\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 2000000,\r\n    \"capacity\": 400\r\n  },\r\n  {\r\n    \"origin\": \"شیراز\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR456\",\r\n    \"departingDate\": \"2023-08-02\",\r\n    \"returningDate\": \"2023-08-04\",\r\n    \"departingTime\": \"14:00\",\r\n    \"returningTime\": \"16:35\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1000000,\r\n    \"capacity\": 100\r\n  },\r\n  {\r\n    \"origin\": \"تبریز\",\r\n    \"destination\": \"اهواز\",\r\n    \"flightNumber\": \"IR789\",\r\n    \"departingDate\": \"2023-08-03\",\r\n    \"returningDate\": \"2023-08-05\",\r\n    \"departingTime\": \"10:15\",\r\n    \"returningTime\": \"09:00\",\r\n    \"terminal\": \"3\",\r\n    \"loadAmount\": \"25 کیلوگرم\",\r\n    \"type\": \"تجاری\",\r\n    \"price\": 2500000,\r\n    \"capacity\": 40\r\n  },\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"شیراز\",\r\n    \"flightNumber\": \"IR234\",\r\n    \"departingDate\": \"2023-08-05\",\r\n    \"returningDate\": \"2023-08-07\",\r\n    \"departingTime\": \"09:30\",\r\n    \"returningTime\": \"12:45\",\r\n    \"terminal\": \"4\",\r\n    \"loadAmount\": \"15 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1500000,\r\n    \"capacity\": 80\r\n  },\r\n  {\r\n    \"origin\": \"مشهد\",\r\n    \"destination\": \"اصفهان\",\r\n    \"flightNumber\": \"IR567\",\r\n    \"departingDate\": \"2023-08-06\",\r\n    \"returningDate\": \"2023-08-08\",\r\n    \"departingTime\": \"11:45\",\r\n    \"returningTime\": \"14:30\",\r\n    \"terminal\": \"2\",\r\n    \"loadAmount\": \"35 کیلوگرم\",\r\n    \"type\": \"تجاری\",\r\n    \"price\": 2200000,\r\n    \"capacity\": 60\r\n  },\r\n  {\r\n    \"origin\": \"اهواز\",\r\n    \"destination\": \"تبریز\",\r\n    \"flightNumber\": \"IR890\",\r\n    \"departingDate\": \"2023-08-07\",\r\n    \"returningDate\": \"2023-08-15\",\r\n    \"departingTime\": \"15:00\",\r\n    \"returningTime\": \"17:30\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1200000,\r\n    \"capacity\": 90\r\n  },\r\n  {\r\n    \"origin\": \"اصفهان\",\r\n    \"destination\": \"شیراز\",\r\n    \"flightNumber\": \"IR678\",\r\n    \"departingDate\": \"2023-08-09\",\r\n    \"returningDate\": \"2023-08-21\",\r\n    \"departingTime\": \"08:30\",\r\n    \"returningTime\": \"11:15\",\r\n    \"terminal\": \"3\",\r\n    \"loadAmount\": \"25 کیلوگرم\",\r\n    \"type\": \"تجاری\",\r\n    \"price\": 2400000,\r\n    \"capacity\": 70\r\n  },\r\n  {\r\n    \"origin\": \"تبریز\",\r\n    \"destination\": \"مشهد\",\r\n    \"flightNumber\": \"IR345\",\r\n    \"departingDate\": \"2023-10-11\",\r\n    \"returningDate\": \"2023-10-18\",\r\n    \"departingTime\": \"12:45\",\r\n    \"returningTime\": \"16:00\",\r\n    \"terminal\": \"2\",\r\n    \"loadAmount\": \"20 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1100000,\r\n    \"capacity\": 100\r\n  },\r\n  {\r\n    \"origin\": \"مشهد\",\r\n    \"destination\": \"شیراز\",\r\n    \"flightNumber\": \"IR678\",\r\n    \"departingDate\": \"2023-09-13\",\r\n    \"returningDate\": \"2023-09-19\",\r\n    \"departingTime\": \"14:15\",\r\n    \"returningTime\": \"16:30\",\r\n    \"terminal\": \"1\",\r\n    \"loadAmount\": \"30 کیلوگرم\",\r\n    \"type\": \"تجاری\",\r\n    \"price\": 2300000,\r\n    \"capacity\": 70\r\n  },\r\n  {\r\n    \"origin\": \"اصفهان\",\r\n    \"destination\": \"تبریز\",\r\n    \"flightNumber\": \"IR890\",\r\n    \"departingDate\": \"2023-11-15\",\r\n    \"returningDate\": \"2023-11-19\",\r\n    \"departingTime\": \"16:45\",\r\n    \"returningTime\": \"18:30\",\r\n    \"terminal\": \"3\",\r\n    \"loadAmount\": \"25 کیلوگرم\",\r\n    \"type\": \"اقتصادی\",\r\n    \"price\": 1200000,\r\n    \"capacity\": 90\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/flights/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flights",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Flight",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flights/64a44bb95a166e3060ee82c8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flights",
+								"64a44bb95a166e3060ee82c8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Flight",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flights/64a44bb95a166e3060ee82c8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flights",
+								"64a44bb95a166e3060ee82c8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flight Booking",
+			"item": [
+				{
+					"name": "Get All Flight Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flight-booking/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flight-booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Flight Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"flight\": \"64a44bb95a166e3060ee82c8\",\r\n    \"user\": \"64a467f9a208231668c2feda\",\r\n    \"passengers\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/flight-booking/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flight-booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Flight Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flight-booking/64a47fb786348a165c189324",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flight-booking",
+								"64a47fb786348a165c189324"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Flight Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flight-booking/64a47fb786348a165c189324",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flight-booking",
+								"64a47fb786348a165c189324"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Flight Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/flight-booking/64a47fb786348a165c189324",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"flight-booking",
+								"64a47fb786348a165c189324"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trains",
+			"item": [
+				{
+					"name": "Get All Trains",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/trains/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"trains",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Train",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/trains/64a452572d66d33330bbfef8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"trains",
+								"64a452572d66d33330bbfef8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Train",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"مشهد\",\r\n    \"trainNumber\": \"1001\",\r\n    \"departingDate\": \"2023-07-05\",\r\n    \"returningDate\": \"2023-07-06\",\r\n    \"departingTime\": \"14:30\",\r\n    \"returningTime\": \"22:25\",\r\n    \"capacity\": 300,\r\n    \"coupeFeatures\": \"تلویزیون، وای‌فای، پریز برق\",\r\n    \"trainFeatures\": \"رستوران، وای‌فای رایگان\",\r\n    \"price\": 500000,\r\n    \"type\": \"کوپه ۴ نفره\"\r\n  },\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"مشهد\",\r\n    \"trainNumber\": \"1001\",\r\n    \"departingDate\": \"2023-07-05\",\r\n    \"returningDate\": \"2023-07-06\",\r\n    \"departingTime\": \"15:30\",\r\n    \"returningTime\": \"21:45\",\r\n    \"capacity\": 100,\r\n    \"coupeFeatures\": \"تلویزیون، وای‌فای، پریز برق\",\r\n    \"trainFeatures\": \"رستوران، وای‌فای رایگان\",\r\n    \"price\": 800000,\r\n    \"type\": \"کوپه ۴ نفره\"\r\n  },\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"مشهد\",\r\n    \"trainNumber\": \"1001\",\r\n    \"departingDate\": \"2023-07-05\",\r\n    \"returningDate\": \"2023-07-06\",\r\n    \"departingTime\": \"16:30\",\r\n    \"returningTime\": \"18:00\",\r\n    \"capacity\": 200,\r\n    \"coupeFeatures\": \"تلویزیون، وای‌فای، پریز برق\",\r\n    \"trainFeatures\": \"رستوران، وای‌فای رایگان\",\r\n    \"price\": 1500000,\r\n    \"type\": \"کوپه ۴ نفره\"\r\n  },\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"مشهد\",\r\n    \"trainNumber\": \"1001\",\r\n    \"departingDate\": \"2023-07-05\",\r\n    \"returningDate\": \"2023-07-06\",\r\n    \"departingTime\": \"08:00\",\r\n    \"returningTime\": \"16:45\",\r\n    \"capacity\": 400,\r\n    \"coupeFeatures\": \"تلویزیون، وای‌فای، پریز برق\",\r\n    \"trainFeatures\": \"رستوران، وای‌فای رایگان\",\r\n    \"price\": 2500000,\r\n    \"type\": \"کوپه ۴ نفره\"\r\n  },\r\n  {\r\n    \"origin\": \"مشهد\",\r\n    \"destination\": \"تهران\",\r\n    \"trainNumber\": \"1002\",\r\n    \"departingDate\": \"2023-07-10\",\r\n    \"returningDate\": \"2023-07-18\",\r\n    \"departingTime\": \"14:30\",\r\n    \"returningTime\": \"16:45\",\r\n    \"capacity\": 150,\r\n    \"coupeFeatures\": \"وای‌فای، پریز برق\",\r\n    \"trainFeatures\": \"وای فای\",\r\n    \"price\": 450000,\r\n    \"type\": \"کوپه ۶ نفره\"\r\n  },\r\n  {\r\n    \"origin\": \"تهران\",\r\n    \"destination\": \"اصفهان\",\r\n    \"trainNumber\": \"1003\",\r\n    \"departingDate\": \"2023-08-15\",\r\n    \"returningDate\": \"2023-08-18\",\r\n    \"departingTime\": \"14:30\",\r\n    \"returningTime\": \"16:45\",\r\n    \"capacity\": 180,\r\n    \"coupeFeatures\": \"تلویزیون، وای‌فای، پریز برق، تهیه غذا\",\r\n    \"trainFeatures\": \"رستوران، وای‌فای رایگان\",\r\n    \"price\": 350000,\r\n    \"type\": \"سالنی ۴ ردیفه\"\r\n  },\r\n  {\r\n    \"origin\": \"اصفهان\",\r\n    \"destination\": \"تهران\",\r\n    \"trainNumber\": \"1004\",\r\n    \"departingDate\": \"2023-09-20\",\r\n    \"returningDate\": \"2023-09-24\",\r\n    \"departingTime\": \"14:30\",\r\n    \"returningTime\": \"16:45\",\r\n    \"capacity\": 190,\r\n    \"coupeFeatures\": \"وای‌فای، پریز برق، میان‌وعده\",\r\n    \"trainFeatures\":\"وای فای\",\r\n    \"price\": 300000,\r\n    \"type\": \"کوپه ۴ نفره\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/trains/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"trains",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Train",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/trains/64a452572d66d33330bbfef8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"trains",
+								"64a452572d66d33330bbfef8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Train",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/trains/64a452572d66d33330bbfef8",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"trains",
+								"64a452572d66d33330bbfef8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Train Booking",
+			"item": [
+				{
+					"name": "Get All Train Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/train-booking/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"train-booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Train Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/train-booking/64a484351b220b02d4d7d83a",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"train-booking",
+								"64a484351b220b02d4d7d83a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Train Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"train\": \"64a452572d66d33330bbfef8\",\r\n    \"user\": \"64a467f9a208231668c2feda\",\r\n    \"passengers\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/train-booking/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"train-booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Train Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/train-booking/64a484351b220b02d4d7d83a",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"train-booking",
+								"64a484351b220b02d4d7d83a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Train Booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/train-booking/64a484351b220b02d4d7d83a",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"train-booking",
+								"64a484351b220b02d4d7d83a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotels",
+			"item": [
+				{
+					"name": "Get All Hotels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/hotels/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"hotels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/hotels/64a525b472f2b435281d69f3",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"hotels",
+								"64a525b472f2b435281d69f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\": \"هتل اسپیناس پالاس تهران\",\r\n    \"address\": \"تهران، سعادت آباد، انتهای بزرگراه یادگار امام، میدان بهرود، خیابان عابدی، کوچه ۳۳\",\r\n    \"city\": \"تهران\",\r\n    \"images\": [\r\n      \"hotel2-1.jpg\",\r\n      \"hotel2-2.jpg\",\r\n      \"hotel2-3.jpg\"\r\n    ],\r\n    \"star\": 5,\r\n    \"features\": [\r\n      \"رستوران\",\r\n      \"ُسالن بدنسازی\",\r\n      \"نمازخانه\",\r\n      \"استخر\",\r\n      \"تاکسی سرویس\",\r\n      \"جکوزی\",\r\n      \"کافی شاپ\",\r\n      \"سونا\",\r\n      \"سالن اجتماعات\",\r\n      \"خدمات اينترنت بیسیم\"\r\n    ],\r\n    \"description\": \"در سفر به تهران اگر به دنبال یک اقامتگاه لوکس و رویایی می\\u200Cگردید، هتل اسپیناس پالاس تهران یک گزینه عالی برای شما خواهد بود. این هتل مجلل در شمال غرب تهران در منطقه خوش آب و هوای سعادت آباد واقع شده و با برخورداری از پیشرفته\\u200Cترین فناوری\\u200Cها از مدرن\\u200Cترین هتل\\u200Cهای ایران به شمار می\\u200Cرود. هتل اسپیناس پالاس تهران در سال 1394 ساخته و جزئی از مجموعه هتل\\u200Cهای مشهور اسپیناس است. به محض ورود به لابی هتل اسپیناس پالاس متوجه خواهید شد این هتل چیزی از یک قصر با شکوه کم ندارد و به راستی نام اسپیناس پالاس شایسته این مکان است.\",\r\n    \"entrance\": \"15:00\",\r\n    \"leaving\": \"11:00\"\r\n  },\r\n  {\r\n    \"name\": \"هتل رز درویشی\",\r\n    \"address\": \"مشهد، خیابان امام رضا، بین امام رضا 1 و 3\",\r\n    \"city\": \"مشهد\",\r\n    \"images\": [\r\n      \"hotel3-1.jpg\",\r\n      \"hotel3-2.jpg\",\r\n      \"hotel3-3.jpg\"\r\n    ],\r\n    \"star\": 3,\r\n    \"features\": [\r\n      \"رستوران\",\r\n      \"ُسالن بدنسازی\",\r\n      \"نمازخانه\",\r\n      \"استخر\",\r\n      \"تاکسی سرویس\",\r\n      \"جکوزی\",\r\n      \"کافی شاپ\",\r\n      \"سونا\",\r\n      \"سالن اجتماعات\",\r\n      \"خدمات اينترنت بیسیم\"\r\n    ],\r\n    \"description\": \"هتل تازه تاسیس رز درویشی در سال 1399 افتتاح گردیده است. این هتل در مجاورت بارگاه ملكوتی حضرت ثامن الحجج(علیه السلام) در خیابان امام رضا واقع شده است. از دیگر مزایای این هتل می\\u200Cتوان به دسترسی آسان به بازار رضا، مراکز خرید هفده شهریور اشاره نمود. هتل رز درویشی در 22 طبقه و 107 باب اتاق و سوئیت با پرسنلی مجرب و آموزش دیده با افتخار آماده میزبانی از شما میهمانان گرامی می\\u200Cباشد.\",\r\n    \"entrance\": \"14:00\",\r\n    \"leaving\": \"12:00\"\r\n  },\r\n  {\r\n    \"name\": \"هتل قصر طلایی\",\r\n    \"address\": \"مشهد، خیابان امام رضا،بین امام رضا 34 و36، هتل قصر طلایی مشهد\",\r\n    \"city\": \"مشهد\",\r\n    \"images\": [\r\n      \"hotel4-1.jpg\",\r\n      \"hotel4-2.jpg\",\r\n      \"hotel4-3.jpg\"\r\n    ],\r\n    \"star\": 5,\r\n    \"features\": [\r\n      \"رستوران\",\r\n      \"ُسالن بدنسازی\",\r\n      \"نمازخانه\",\r\n      \"استخر\",\r\n      \"تاکسی سرویس\",\r\n      \"جکوزی\",\r\n      \"کافی شاپ\",\r\n      \"سونا\",\r\n      \"سالن اجتماعات\",\r\n      \"خدمات اينترنت بیسیم\"\r\n    ],\r\n    \"description\": \"هتل بین المللی قصر طلایی مشهد به عنوان بزرگ\\u200Cترین و مجلل\\u200Cترین هتل کشور، با بهره\\u200Cگیری از معماری منحصر به فرد در سطح بین المللی طراحی شده و اجرا شده است. هتل قصر طلایی در سال ۸۹ با موقعیت بسیار عالی در خیابان امام رضا(ع) افتتاح شد. هتل قصر دارای ۲۰ طبقه بنا و ۳۵۸ باب اتاق و سوئیت می\\u200Cباشد که ضمن احترام به حقوق مهمانان خود، امنیت، آسایش و امکانات رفاهی فراوانی را برای این عزیزان به ارمغان آورده است.\",\r\n    \"entrance\": \"15:00\",\r\n    \"leaving\": \"12:00\"\r\n  },\r\n  {\r\n    \"name\": \"هتل آرامیس پلاس کیش\",\r\n    \"address\": \"کیش، میدان پردیس\",\r\n    \"city\": \"کیش\",\r\n    \"images\": [\r\n      \"hotel5-1.jpg\",\r\n      \"hotel5-2.jpg\",\r\n      \"hotel5-3.jpg\"\r\n    ],\r\n    \"star\": 5,\r\n    \"features\": [\r\n      \"رستوران\",\r\n      \"ُسالن بدنسازی\",\r\n      \"نمازخانه\",\r\n      \"استخر\",\r\n      \"تاکسی سرویس\",\r\n      \"جکوزی\",\r\n      \"کافی شاپ\",\r\n      \"سونا\",\r\n      \"سالن اجتماعات\",\r\n      \"خدمات اينترنت بیسیم\"\r\n    ],\r\n    \"description\": \"هتل تازه تاسیس آرامیس پلاس کیش در سال آبان ماه سال 1399 افتتاح گردیده است. از بهترین مزایای این هتل می\\u200Cتوان به دسترسی آسان به ساحل زیبای خلیج فارس و مراکز خرید از جمله پردیس 2، کیش مال، رویا مال و کتون اشاره نمود. هتل پنج ستاره آرامیس پلاس کیش در 14 طبقه و با 171 باب اتاق و سوئیت به همراه پرسنلی مجرب و آموزش دیده با افتخار آماده میزبانی از شما میهمانان گرامی می\\u200Cباشد.\",\r\n    \"entrance\": \"14:00\",\r\n    \"leaving\": \"12:00\"\r\n  },\r\n  {\r\n    \"name\": \"هتل گاردنیا\",\r\n    \"address\": \"کیش، بلوار هرمز، نرسیده به میدان حافظ\",\r\n    \"city\": \"کیش\",\r\n    \"images\": [\r\n      \"hotel6-1.jpg\",\r\n      \"hotel6-2.jpg\",\r\n      \"hotel6-3.jpg\"\r\n    ],\r\n    \"star\": 4,\r\n    \"features\": [\r\n      \"رستوران\",\r\n      \"ُسالن بدنسازی\",\r\n      \"نمازخانه\",\r\n      \"استخر\",\r\n      \"تاکسی سرویس\",\r\n      \"جکوزی\",\r\n      \"کافی شاپ\",\r\n      \"سونا\",\r\n      \"سالن اجتماعات\",\r\n      \"خدمات اينترنت بیسیم\"\r\n    ],\r\n    \"description\": \"هتل 3 ستاره گاردنیا یکی از هتل های زیبا و مجهز کیش است که در سال 1387 آغاز بکار کرد. فاز نخست این اقامتگاه که در سال 1390 احداث شد، 21 واحد ویلایی را دربر می گیرد و شامل اتاق های دو تا چهار نفره با فضایی دلنشین است. فاز دوم که فاز هتلی بود، در 36 واحد اتاق یک تا چهار تخته در سال 1393 افتتاح گردید. به طور کلی هتل گاردنیا در 4 طبقه با 55 واحد اتاق و سوئیت هتلی و ویلایی ساخته شده است.\",\r\n    \"entrance\": \"13:00\",\r\n    \"leaving\": \"12:00\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/hotels/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"hotels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/hotels/64a525b472f2b435281d69f3",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"hotels",
+								"64a525b472f2b435281d69f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/hotels/64a525b472f2b435281d69f3",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"hotels",
+								"64a525b472f2b435281d69f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rooms",
+			"item": [
+				{
+					"name": "Create New Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"title\": \"اتاق دو تخته تویین اقتصادی(طبقات 8-3) استاندارد\",\r\n    \"pricePerNight\": \"3,484,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525b472f2b435281d69f3\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق دو تخته دبل اقتصادی(طبقات 8-3) استاندارد\",\r\n    \"pricePerNight\": \"3,484,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525b472f2b435281d69f3\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق دو تخته دبل تجاری(طبقات19-9) استاندارد\",\r\n    \"pricePerNight\": \"3,640,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525b472f2b435281d69f3\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق دو تخته تویین تجاری (طبقات19-9) استاندارد\",\r\n    \"pricePerNight\": \"3,640,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525b472f2b435281d69f3\"\r\n  },\r\n  {\r\n    \"title\": \"سه تخته خانواده- ويو شهرcf\",\r\n    \"pricePerNight\": \"7,291,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f6\"\r\n  },\r\n  {\r\n    \"title\": \"استاندارد گاردن بالکني\",\r\n    \"pricePerNight\": \"6,584,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f6\"\r\n  },\r\n  {\r\n    \"title\": \"رويال فميلي بالکني روم کلاسيک\",\r\n    \"pricePerNight\": \"8,705,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f6\"\r\n  },\r\n  {\r\n    \"title\": \"جونيورcf (سه تخته خانوادگي)\",\r\n    \"pricePerNight\": \"10,120,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f6\"\r\n  },\r\n  {\r\n    \"title\": \"دو تخته دابل اکونومی همراه با صبحانه و یک وعده غذا در روز (منو بوفه)\",\r\n    \"pricePerNight\": \"6,896,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f7\"\r\n  },\r\n  {\r\n    \"title\": \"سه تخته کینگ همراه با صبحانه و یک وعده غذا در روز (منو بوفه)\",\r\n    \"pricePerNight\": \"10,334,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f7\"\r\n  },\r\n  {\r\n    \"title\": \"چهار تخته کینگ همراه با صبحانه و یک وعده غذا در روز (منو بوفه)\",\r\n    \"pricePerNight\": \"10,120,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f7\"\r\n  },\r\n  {\r\n    \"title\": \"سينگل لاکچري\",\r\n    \"pricePerNight\": \"2,574,000\",\r\n    \"capacity\": \"1\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f8\"\r\n  },\r\n  {\r\n    \"title\": \"دبل پانوراما\",\r\n    \"pricePerNight\": \"4,430,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f8\"\r\n  },\r\n  {\r\n    \"title\": \"آپارتمان رويال\",\r\n    \"pricePerNight\": \"8,842,000\",\r\n    \"capacity\": \"4\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f8\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق دو تخته جزیره\",\r\n    \"pricePerNight\": \"934,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f9\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق سوئیت یک خوابه سه نفره استاندارد\",\r\n    \"pricePerNight\": \"1,215,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f9\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق سه تخته جزیره\",\r\n    \"pricePerNight\": \"1,122,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69f9\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق دو تخته هتلی استاندارد\",\r\n    \"pricePerNight\": \"217,000\",\r\n    \"capacity\": \"2\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69fa\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق سه تخته هتلی استاندارد\",\r\n    \"pricePerNight\": \"266,000\",\r\n    \"capacity\": \"3\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69fa\"\r\n  },\r\n  {\r\n    \"title\": \"اتاق چهار تخته ویلایی استاندارد\",\r\n    \"pricePerNight\": \"365,000\",\r\n    \"capacity\": \"4\",\r\n    \"availableEntrance\": \"2023-08-02T14:30:00\",\r\n    \"availableLeaving\": \"2023-08-04T16:45:00\",\r\n    \"meal\": \"صبحانه\",\r\n    \"hotel\": \"64a525d172f2b435281d69fa\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/rooms/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"rooms",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sajjadfarzaneh714@gmail.com\",\r\n    \"phone\": 90233268759,\r\n    \"birthdate\": \"2006-11-06\",\r\n    \"address\": \"mashhad\",\r\n    \"role\": \"admin\",\r\n    \"password\": \"test1234\",\r\n    \"passwordConfirm\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/signup",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"sajjadfarzaneh714@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/login",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/64a9bc7b6c65240d14663f59",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"64a9bc7b6c65240d14663f59"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/64a44430c7024e17809f53a1",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"64a44430c7024e17809f53a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/64a44430c7024e17809f53a1",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"64a44430c7024e17809f53a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/deleteMe",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"deleteMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/updateMe",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"updateMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/me",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -3,28 +3,26 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-    name: {
+    firstname: {
         type: String,
-        required: [true, 'A user must have a name!']
+    },
+    lastname: {
+        type: String,
     },
     email: {
         type: String,
         required: [true, 'Please provide your email'],
         unique: true,
         lowercase: true,
-        validate: [validator.isEmail, 'Please provide a valid email!']
-    },
-    username: {
-        type: String,
-        required: [true, 'Please provide your username'],
-        unique: true,
+        // validate: [validator.isEmail, 'Please provide a valid email!']
     },
     phone: {
         type: Number,
         required: [true, 'Please provide your phone'],
         unique: true,
     },
-    photo: String,
+    birthdate: Date,
+    address: String,
     role: {
         type: String,
         enum: ['user', 'admin'],
@@ -47,11 +45,15 @@ const userSchema = new mongoose.Schema({
             message: 'Passwords are not equal!'
         }
     },
+    passwordChangedAt: Date,
     active: {
         type: Boolean,
         default: true,
         select: false
-    }
+    },
+}, {
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
 });
 
 userSchema.pre('save', async function (next) {
@@ -67,15 +69,51 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-userSchema.pre(/^find/, function(next) {
+userSchema.pre('save', function (next) {
+    if (!this.isModified('password') || this.isNew) return next();
+
+    this.passwordChangedAt = Date.now() - 1000;
+    next();
+});
+
+userSchema.pre(/^find/, function (next) {
     // this points to the current query
-    this.find({ active: { $ne: false } });
+    this.find({active: {$ne: false}});
     next();
 });
 
 userSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword);
 };
+
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+    if (this.passwordChangedAt) {
+        const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+        return JWTTimestamp < changedTimestamp;
+    }
+
+    // False means password NOT changed
+    return false;
+};
+
+// Virtual populate
+userSchema.virtual('flightBookings', {
+    ref: 'FlightBooking',
+    foreignField: 'user',
+    localField: '_id'
+});
+
+userSchema.virtual('trainBookings', {
+    ref: 'TrainBooking',
+    foreignField: 'user',
+    localField: '_id'
+});
+
+userSchema.virtual('roomBookings', {
+    ref: 'RoomBooking',
+    foreignField: 'user',
+    localField: '_id'
+});
 
 const User = mongoose.model('User', userSchema);
 

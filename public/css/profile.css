@@ -1,0 +1,12 @@
+#profileForm {
+    background-color: lightsteelblue; 
+    padding: 45px; 
+    border-radius: 10px;
+}
+
+.main-section {
+    background-image: url("/img/profileBG.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

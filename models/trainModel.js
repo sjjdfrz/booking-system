@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const trainSchema = new mongoose.Schema(
     {
-
         origin: {
             type: String,
             required: [true, 'A train must have origin city!']
@@ -15,38 +14,52 @@ const trainSchema = new mongoose.Schema(
             type: Number,
             required: [true, 'A train must have train number!']
         },
-        departing: {
+        departingDate: {
             type: Date,
-            required: [true, 'A train must have departing Date!']
+            required: [true, 'A flight must have departing Date!']
         },
-        returning: Date,
-        // passenger: {
-        //     type: Number,
-        //     required: [true, `You have not specified the number of passengers!`]
-        // },
+        returningDate: Date,
+        departingTime: {
+            type: String,
+            required: [true, 'A flight must have departing Time!']
+        },
+        returningTime: String,
+        capacity: {
+            type: Number,
+            required: [true, 'A train must have a capacity!']
+        },
         coupeFeatures: {
-          type: String,
+            type: [String],
             required: [true, `You have not specified feature of coupes!`]
         },
         trainFeatures: {
-            type: String,
+            type: [String],
             required: [true, `You have not specified feature of train!`]
         },
         type: {
             type: String,
             enum: {
-                values: ['کوپه ای 4 نفره', 'کوپه ای 6 نفره', 'سالنی 4 ردیفه'],
-                message: `Type is either: کوپه ای 4 نفره, کوپه ای 6 نفره, سالنی 4 ردیفه`
+                values: ['کوپه ۶ نفره', 'کوپه ۴ نفره', 'سالنی ۴ ردیفه'],
+                message: `Type is either: کوپه ۶ نفره, کوپه ۴ نفره, سالنی ۴ ردیفه`
             },
-            default: 'کوپه ای 4 نفره'
+            default: 'کوپه ۴ نفره'
         },
         price: {
             type: Number,
             required: [true, 'A train must have a price']
         },
-        images: [String]
+    }, {
+        toJSON: {virtuals: true},
+        toObject: {virtuals: true}
     }
 );
+
+// Virtual populate
+trainSchema.virtual('trainBookings', {
+    ref: 'TrainBooking',
+    foreignField: 'train',
+    localField: '_id'
+});
 
 const Train = mongoose.model('Train', trainSchema);
 
